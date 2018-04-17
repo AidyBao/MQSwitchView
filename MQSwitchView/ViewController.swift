@@ -12,7 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        let zxSwith = ZXSwitch.init(frame: CGRect.init(x: 100, y: 300, width: 140, height: 40));
+        zxSwith.delegate = self;
+        self.view.addSubview(zxSwith);
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,5 +25,11 @@ class ViewController: UIViewController {
     }
 
 
+}
+
+extension ViewController: ZXSwitchDelegate {
+    func didZXSwitchAction(sender: UIButton) {
+        print(sender.tag)
+    }
 }
 
